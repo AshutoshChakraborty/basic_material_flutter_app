@@ -25,6 +25,59 @@ class PageOne extends StatelessWidget {
           },
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Row(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      height: 90.0,
+                      width: 90.0,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(
+                                  "https://www.travelogyindia.com/images/kolkata/victoria-memorial-kolkata.jpg"))),
+                    ),
+                  ),
+                Align(alignment: Alignment.topCenter,child: Padding(
+                  padding: const EdgeInsets.only(top: 35,left: 16),
+                  child: Text("User Profile",textScaleFactor: 1.5,style: TextStyle(
+                   color: Colors.white 
+                  ),),
+                ))
+                ],
+              ),
+              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+            ),
+            ListTile(
+              title: Text("Option 1"),
+              leading: Icon(Icons.person),
+            ),
+            Divider(
+              height: 1,
+              color:Colors.grey,
+            ),
+             ListTile(
+              title: Text("Option 2"),
+              leading: Icon(Icons.person_pin),
+            ),
+             Divider(
+              height: 1,
+              color:Colors.grey,
+            ),
+             ListTile(
+              title: Text("Option 3"),
+              leading: Icon(Icons.pets),
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -42,47 +95,51 @@ class PageOne extends StatelessWidget {
 
   Card myCard(List<Collections> list, int index) {
     return Card(
-          child: Stack(
-            children: <Widget>[
-              Align(
-                child: Image.network(list[index].collection.imageUrl),
-                alignment: AlignmentDirectional.center,
-              ),
-              Align(
-                child: Stack(
-                  children: <Widget>[
-                    Align(
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                              child: Opacity(
-                            opacity: 0.5,
-                            child: Container(
-                              color: Colors.black,
-                              height: 45,
-                              child: Text(""),
-                            ),
-                          )),
-                        ],
-                      ),
-                      alignment: AlignmentDirectional.bottomStart,
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                          list[index].collection.title,
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                alignment: AlignmentDirectional.bottomStart,
-              )
-            ],
+      child: Stack(
+        children: <Widget>[
+          Align(
+            child: Image.network(list[index].collection.imageUrl),
+            alignment: AlignmentDirectional.center,
           ),
-        );
+          Align(
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                          child: Opacity(
+                        opacity: 0.5,
+                        child: Container(
+                          color: Colors.black,
+                          height: 45,
+                          child: Text(""),
+                        ),
+                      )),
+                    ],
+                  ),
+                  alignment: AlignmentDirectional.bottomStart,
+                ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      list[index].collection.title,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            alignment: AlignmentDirectional.bottomStart,
+          )
+        ],
+      ),
+    );
   }
 }
 
