@@ -34,51 +34,55 @@ class PageOne extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
-          child: Card(
-            child: Stack(
-              children: <Widget>[
-                Align(
-                  child: Image.network(list[index].collection.imageUrl),
-                  alignment: AlignmentDirectional.center,
-                ),
-                Align(
-                  child: Stack(
-                    children: <Widget>[
-                      Align(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                                child: Opacity(
-                              opacity: 0.5,
-                              child: Container(
-                                color: Colors.black,
-                                height: 45,
-                                child: Text(""),
-                              ),
-                            )),
-                          ],
-                        ),
-                        alignment: AlignmentDirectional.bottomStart,
-                      ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Text(
-                            list[index].collection.title,
-                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  alignment: AlignmentDirectional.bottomStart,
-                )
-              ],
-            ),
-          ),
+          child: myCard(list, index),
         );
       },
     );
+  }
+
+  Card myCard(List<Collections> list, int index) {
+    return Card(
+          child: Stack(
+            children: <Widget>[
+              Align(
+                child: Image.network(list[index].collection.imageUrl),
+                alignment: AlignmentDirectional.center,
+              ),
+              Align(
+                child: Stack(
+                  children: <Widget>[
+                    Align(
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                              child: Opacity(
+                            opacity: 0.5,
+                            child: Container(
+                              color: Colors.black,
+                              height: 45,
+                              child: Text(""),
+                            ),
+                          )),
+                        ],
+                      ),
+                      alignment: AlignmentDirectional.bottomStart,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Text(
+                          list[index].collection.title,
+                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                alignment: AlignmentDirectional.bottomStart,
+              )
+            ],
+          ),
+        );
   }
 }
 
